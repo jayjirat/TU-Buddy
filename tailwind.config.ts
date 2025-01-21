@@ -14,10 +14,8 @@ export default {
       },
     },
   },
-  plugins: [
-    require('daisyui'),
-  ],
+  plugins: [require("daisyui")],
   daisyui: {
-    themes: ["dracula"],
+    themes: ["valentine"],
   },
 } satisfies Config;
