@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {!isLoginPage && (
+        {!isLoginPage ? (
           <>
             <div className="navbar bg-base-100 shadow-xl">
               <div className="navbar-start">
@@ -165,6 +165,8 @@ export default function RootLayout({
               </aside>
             </footer>
           </>
+        ) : (
+          children
         )}
       </body>
     </html>
