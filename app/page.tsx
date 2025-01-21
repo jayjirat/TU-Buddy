@@ -1,14 +1,9 @@
 "use client";
 import { useState } from "react";
 import { login } from "./action.tsx";
-import { useFormState } from "react-dom";
 
 export default function Home() {
-  const initialState = {
-    email: "",
-    password: "",
-  };
-  
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -59,11 +54,6 @@ export default function Home() {
                 className="input input-bordered"
                 required
               />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary" type="submit">Login</button>
