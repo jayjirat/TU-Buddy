@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TU Buddy
 
-## Getting Started
+TU Buddy is a web application designed to complement the mobile application being developed for the CN333 Mobile Application Development course. This project provides a unified platform for Thammasat University students to connect, share, and engage in a vibrant campus community. 🎓💻
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Framework:** [Next.js](https://nextjs.org/) 🚀
+- **Database ORM:** [Prisma ORM](https://www.prisma.io/) 🗄️
+- **Database:** PostgreSQL (Future support for MongoDB with Mongoose) 🛠️
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Authentication (Future Feature)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The integration with **TU API** for authentication is an essential feature planned for future development. Currently, this feature is not implemented because it requires permission from the university. Once approval is obtained, students will be able to log in securely using their Thammasat University credentials, ensuring only authorized users can access the platform. 🔐
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This feature will be added as soon as the necessary permissions are granted.
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+### 1. **Marketplace** 💰
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Students can sell and buy second-hand items.
+- Post and search for dormitory contracts.
+- Promote student-owned restaurants. 🍔
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 2. **Campus Guide** 📍
 
-## Deploy on Vercel
+- Review restaurants in and around the campus. 🍴
+- Share insights and reviews about various courses. 📚
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. **Community** 🌐
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Lost & Found:** Post and search for lost or found items. 🔍
+- **Blog Posts:** Share stories, find friends, or discuss topics of interest. 📝
+
+## Future Development
+
+- Integration with MongoDB and Mongoose for expanded database functionality. 🔮
+- Enhanced mobile application compatibility for seamless user experience. 📱
+
+## Purpose
+
+This project aims to create a supportive and engaging online environment for Thammasat University students, fostering community interaction and collaboration through an intuitive and feature-rich platform. 🤝
+
+---
+
+### Contributions
+
+This project is created as a personal initiative to complement the mobile app developed for the CN333 Mobile Application Development course. The course focuses on mobile app development, but I decided to build a web platform on my own for personal learning purposes. This project is not a requirement for the course and has been developed independently. ✨
