@@ -60,7 +60,7 @@ export default function Home() {
               <h2 className="card-title">Community</h2>
               <p>Find lost items and explore community blogs.</p>
               <div className="card-actions justify-end">
-                <Link href={"/"} className="btn btn-primary">
+                <Link href={"/community"} className="btn btn-primary">
                   Explore
                 </Link>
               </div>
