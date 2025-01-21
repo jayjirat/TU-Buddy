@@ -6,7 +6,7 @@ TU Buddy is a web application designed to complement the mobile application bein
 
 - **Framework:** [Next.js](https://nextjs.org/) 🚀
 - **Database ORM:** [Prisma ORM](https://www.prisma.io/) 🗄️
-- **Database:** PostgreSQL (Future support for MongoDB with Mongoose) 🛠️
+- **Database:** [PostgreSQL](https://www.postgresql.org/) (Future support for [MongoDB](https://www.mongodb.com/) with [Mongoose](https://mongoosejs.com/)) 🛠️
 
 ## Authentication (Future Feature)
 
@@ -18,8 +18,8 @@ This feature will be added as soon as the necessary permissions are granted.
 
 ### 1. **Marketplace** 💰
 
-- Students can sell and buy second-hand items.
-- Post and search for dormitory contracts.
+- Students can sell and buy second-hand items. 🛒
+- Post and search for dormitory contracts. 🏠
 - Promote student-owned restaurants. 🍔
 
 ### 2. **Campus Guide** 📍
