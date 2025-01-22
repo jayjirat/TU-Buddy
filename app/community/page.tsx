@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { createBlogAction, getBlogsAction } from "./action";
-import { log } from "node:console";
+import Loading from "../../components/loading";
 
 export default function Community() {
   type Blog = {
@@ -18,14 +18,15 @@ export default function Community() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     const fetchBlogs = async () => {
       try {
         const fetchingBlog = await getBlogsAction();
         setBlogs(fetchingBlog.blogs);
-        console.log(fetchingBlog.blogs);
-        console.log(blogs);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching blogs:", error);
       }
@@ -118,7 +119,8 @@ export default function Community() {
                 </div>
               </div>
             </div>
-            {blogs.length > 0 ? (
+            {loading && <Loading></Loading>}
+            {blogs.length > 0 &&
               blogs.map((blog) => (
                 <div className="flex flex-col gap-4 mb-4" key={blog.id}>
                   <div className="card card-side bg-base-100 shadow-xl">
@@ -131,10 +133,7 @@ export default function Community() {
                     </div>
                   </div>
                 </div>
-              ))
-            ) : (
-              <p>No blogs available</p>
-            )}
+              ))}{" "}
           </div>
         </div>
 

@@ -3,14 +3,14 @@ import { useState } from "react";
 import { login } from "./action.tsx";
 
 export default function Home() {
+  const [UserName, setUserName] = useState("");
+  const [PassWord, setPassWord] = useState("");
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    login(email, password);
-  }
+    const resposne = await login(UserName, PassWord);
+    console.log("response", resposne);
+  };
 
   return (
     <div className="hero bg-base-200 min-h-screen">
@@ -29,14 +29,16 @@ export default function Home() {
           <form className="card-body" onSubmit={handleSubmit}>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text">StudentID/Username</span>
               </label>
               <input
-                name="email"
+                name="studentID"
                 type="text"
-                placeholder="email"
-                value={email}
-                onChange={(event) => {setEmail(event.target.value)}}
+                placeholder="studentID/Username"
+                value={UserName}
+                onChange={(event) => {
+                  setUserName(event.target.value);
+                }}
                 className="input input-bordered"
                 required
               />
@@ -49,14 +51,18 @@ export default function Home() {
                 name="password"
                 type="password"
                 placeholder="password"
-                value={password}
-                onChange={(event) => {setPassword(event.target.value)}}
+                value={PassWord}
+                onChange={(event) => {
+                  setPassWord(event.target.value);
+                }}
                 className="input input-bordered"
                 required
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary" type="submit">Login</button>
+              <button className="btn btn-primary" type="submit">
+                Login
+              </button>
             </div>
           </form>
         </div>
