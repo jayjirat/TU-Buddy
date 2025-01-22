@@ -28,10 +28,10 @@ export async function middleware(request: NextRequest) {
 
     requestHeaders.set(
       "studentID",
-      JSON.stringify({ email: payload.studentID })
+      JSON.stringify({ studentID: payload.studentID })
     );
-    
-    requestHeaders.set("role", JSON.stringify({ email: payload.role }));
+
+    requestHeaders.set("role", JSON.stringify({ role: payload.role }));
 
     response = NextResponse.next({
       request: {
@@ -47,5 +47,5 @@ export async function middleware(request: NextRequest) {
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: "/home/:path*",
+  matcher: ["/home/:path*", "/community/:path*"],
 };

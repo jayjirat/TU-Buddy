@@ -1,16 +1,19 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { createBlogAction, getBlogsAction } from "./action";
+import { createBlogAction, getBlogsAction, getDataAction } from "./action";
 import Loading from "../../components/loading";
 
 export default function Community() {
+  // getDataAction();
+  // console.log("data :", data);
+
   type Blog = {
     id: number;
     createAt: Date;
     updatedAt: Date;
     published: boolean;
-    authorId?: number;
+    authorId: number;
     title: string;
     description: string;
   };
@@ -19,25 +22,28 @@ export default function Community() {
   const [description, setDescription] = useState("");
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(false);
+  const [studentID, setStudentID] = useState("");
 
   useEffect(() => {
     setLoading(true);
-    const fetchBlogs = async () => {
+    const fetchBlogsAndUser = async () => {
       try {
         const fetchingBlog = await getBlogsAction();
+        const fetchingUser = await getDataAction();
         setBlogs(fetchingBlog.blogs);
+        setStudentID(fetchingUser?.studentID.studentID);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching blogs:", error);
       }
     };
 
-    fetchBlogs();
+    fetchBlogsAndUser();
   }, []);
 
   const createBlog = async () => {
     try {
-      await createBlogAction(title, description);
+      await createBlogAction(title, description, studentID);
       setTitle("");
       setDescription("");
     } catch (error) {
@@ -112,6 +118,7 @@ export default function Community() {
                       className="btn btn-primary"
                       type="submit"
                       form="createBlogForm"
+                      disabled={title === "" || description === ""}
                     >
                       Create
                     </button>
