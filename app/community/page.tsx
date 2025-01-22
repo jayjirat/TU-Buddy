@@ -5,8 +5,6 @@ import { createBlogAction, getBlogsAction, getDataAction } from "./action";
 import Loading from "../../components/loading";
 
 export default function Community() {
-  // getDataAction();
-  // console.log("data :", data);
 
   type Blog = {
     id: number;

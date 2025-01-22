@@ -67,13 +67,13 @@ export default function RootLayout({
                       <Link href={"/home"}>Homepage</Link>
                     </li>
                     <li>
-                      <a>Marketplace</a>
+                      <a>My Marketplace</a>
                     </li>
                     <li>
-                      <a>Campus Guide</a>
+                      <a>My Campus Guide</a>
                     </li>
                     <li>
-                      <Link href={"/community/me"}>Community</Link>
+                      <Link href={"/community/me"}>My Community</Link>
                     </li>
                   </ul>
                 </div>
