@@ -62,19 +62,23 @@ export default function Home() {
                 className="input input-bordered"
                 required
               />
-              <br />
               {errorMessage && (
-                <span className="text-xs text-red-500">
-                  <span className="font-bold">เกิดข้อผิดพลาด: </span>
-                  {errorMessage}
-                </span>
+                <>
+                  <br />
+                  <span className="text-xs text-red-500">
+                    <span className="font-bold">เกิดข้อผิดพลาด: </span>
+                    {errorMessage}
+                  </span>
+                </>
               )}
-              <br />
               {status !== 0 && (
-                <span className="text-xs text-red-500">
-                  <span className="font-bold">Exit with status code: </span>{" "}
-                  {status}
-                </span>
+                <>
+                  <br />
+                  <span className="text-xs text-red-500">
+                    <span className="font-bold">Exit with status code: </span>{" "}
+                    {status}
+                  </span>
+                </>
               )}
             </div>
             <div className="form-control mt-6">

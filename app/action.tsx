@@ -66,7 +66,7 @@ export async function login(UserName: string, PassWord: string) {
 
     // Sign jwt token
     const token = jwt.sign(
-      { studentID: response?.data.username },
+      { studentID: response?.data.username, role: currentUser?.role },
       process.env.JWT_SECRET_KEY as string,
       {
         expiresIn: "1h",
