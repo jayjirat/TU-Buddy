@@ -84,3 +84,8 @@ export async function login(UserName: string, PassWord: string) {
   }
   return redirect("/home");
 }
+
+export async function logoutAction() {
+  (await cookies()).delete("token");
+  return redirect("/");
+}

@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { logoutAction } from "./action";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,6 +24,10 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
   const isLoginPage = pathname === "/";
+
+  const logout = () => {
+    logoutAction();
+  };
 
   return (
     <html lang="en" data-theme="valentine" suppressHydrationWarning>
@@ -58,19 +64,24 @@ export default function RootLayout({
                     className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
                   >
                     <li>
-                      <a>Homepage</a>
+                      <Link href={"/home"}>Homepage</Link>
                     </li>
                     <li>
-                      <a>Portfolio</a>
+                      <a>Marketplace</a>
                     </li>
                     <li>
-                      <a>About</a>
+                      <a>Campus Guide</a>
+                    </li>
+                    <li>
+                      <Link href={"/community/me"}>Community</Link>
                     </li>
                   </ul>
                 </div>
               </div>
               <div className="navbar-center">
-                <a className="btn btn-ghost text-xl">TU Buddy</a>
+                <Link href={"/home"} className="btn btn-ghost text-xl">
+                  TU Buddy
+                </Link>
               </div>
               <div className="navbar-end">
                 <div className="form-control">
@@ -96,7 +107,7 @@ export default function RootLayout({
                     />
                   </svg>
                 </button>
-                <button className="btn btn-ghost btn-circle">
+                <div className="dropdown dropdown-end">
                   <div
                     tabIndex={0}
                     role="button"
@@ -109,7 +120,24 @@ export default function RootLayout({
                       />
                     </div>
                   </div>
-                </button>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                  >
+                    <li>
+                      <a className="justify-between">
+                        Profile
+                        <span className="badge">New</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>Settings</a>
+                    </li>
+                    <li>
+                      <button onClick={logout}>Logout</button>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
             {children}
