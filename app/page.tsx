@@ -5,11 +5,15 @@ import { login } from "./action.tsx";
 export default function Home() {
   const [UserName, setUserName] = useState("");
   const [PassWord, setPassWord] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [status, setStatus] = useState(0);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    const resposne = await login(UserName, PassWord);
-    console.log("response", resposne);
+
+    const { message, status } = await login(UserName, PassWord);
+    setErrorMessage(message);
+    setStatus(status);
   };
 
   return (
@@ -58,6 +62,20 @@ export default function Home() {
                 className="input input-bordered"
                 required
               />
+              <br />
+              {errorMessage && (
+                <span className="text-xs text-red-500">
+                  <span className="font-bold">เกิดข้อผิดพลาด: </span>
+                  {errorMessage}
+                </span>
+              )}
+              <br />
+              {status !== 0 && (
+                <span className="text-xs text-red-500">
+                  <span className="font-bold">Exit with status code: </span>{" "}
+                  {status}
+                </span>
+              )}
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary" type="submit">
