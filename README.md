@@ -8,11 +8,9 @@ TU Buddy is a web application designed to complement the mobile application bein
 - **Database ORM:** [Prisma ORM](https://www.prisma.io/) 🗄️
 - **Database:** [PostgreSQL](https://www.postgresql.org/) (Future support for [MongoDB](https://www.mongodb.com/) with [Mongoose](https://mongoosejs.com/)) 🛠️
 
-## Authentication (Future Feature)
+## Authentication
 
-The integration with **TU API** for authentication is an essential feature planned for future development. Currently, this feature is not implemented because it requires permission from the university. Once approval is obtained, students will be able to log in securely using their Thammasat University credentials, ensuring only authorized users can access the platform. 🔐
-
-This feature will be added as soon as the necessary permissions are granted.
+TU API has been integrated for authentication, allowing students to securely log in using their Thammasat University credentials, ensuring that only authorized users have access to the platform. 🔐
 
 ## Features
 
