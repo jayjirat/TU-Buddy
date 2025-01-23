@@ -1,6 +1,7 @@
 
 import axios from "axios";
 import { cookies } from "next/headers";
+import Blog from "../../../components/blog";
 
 const getBlogs = async () => {
   try {
@@ -35,6 +36,11 @@ export default async function Community() {
     description: string;
   };
 
+  enum Mode {
+    VIEW = "View",
+    EDIT = "Edit",
+  }
+
   const blogs: Blog[] = await getBlogs();
   return (
     <div className="m-4">
@@ -56,20 +62,11 @@ export default async function Community() {
             <div className="flex justify-center text-xl font-bold">
               My Blogs
             </div>
-            {blogs.length > 0 &&
-              blogs.map((blog) => (
-                <div className="flex flex-col gap-4 mb-4" key={blog.id}>
-                  <div className="card card-side bg-base-100 shadow-xl">
-                    <div className="card-body">
-                      <h2 className="card-title">{blog.title}</h2>
-                      <p>{blog.description}</p>
-                      <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Edit</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}{" "}
+            <Blog
+              blogs={blogs}
+              mode={Mode.EDIT}
+              view_url="/community/me/blog/edit"
+            />
           </div>
         </div>
 
